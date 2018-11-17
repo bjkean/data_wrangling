@@ -14,6 +14,8 @@ diamonds$x %>%
 x = round(diamonds$x,2)
 round(x)
 
+cmd+shift+m == %>%
+
 **Tidy Data**
 1) each variable is saved in its own column
 2) each observation is saved in its own row
@@ -26,3 +28,16 @@ round(x)
 *packages discussed in video:*
 install.packages('devtools')
 devtools::install_github('rstudio/EDAWR')
+
+#use a lookup table (lut) to add a new column w/ meaningful values
+# Both the dplyr and hflights packages are loaded into workspace
+lut <- c("AA" = "American", "AS" = "Alaska", "B6" = "JetBlue", "CO" = "Continental", 
+         "DL" = "Delta", "OO" = "SkyWest", "UA" = "United", "US" = "US_Airways", 
+         "WN" = "Southwest", "EV" = "Atlantic_Southeast", "F9" = "Frontier", 
+         "FL" = "AirTran", "MQ" = "American_Eagle", "XE" = "ExpressJet", "YV" = "Mesa")
+
+# Add the Carrier column to hflights
+hflights$Carrier <- lut[hflights$UniqueCarrier]
+
+DPLYR
+print(kdj
