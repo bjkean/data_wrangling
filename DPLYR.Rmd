@@ -1,0 +1,6 @@
+#DPLYR
+**filter** - used on rows  
+**select** - used on columns  
+**arrange** - sorts data  
+**mutate** - creates a new variable  
+**summarise**, in conjunction w/ **group by** - evaluate data  

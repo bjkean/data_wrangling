@@ -1,0 +1,28 @@
+Table vs DF
+
+Table gives neater view and doesn't do the annoying wrap like a DF
+tbl_df(diamonds)
+
+**View**(data_set)
+Shows the entire dataset in an excel like format
+
+**Chaining together** The first is easier to think about since you can chain together more functions.  
+diamonds$x %>%
+  round(2) %>%
+  mean()
+  
+x = round(diamonds$x,2)
+round(x)
+
+**Tidy Data**
+1) each variable is saved in its own column
+2) each observation is saved in its own row
+3) each type of data is stored in a single table
+
+**unPivot a table**  
+**gather**()
+
+
+*packages discussed in video:*
+install.packages('devtools')
+devtools::install_github('rstudio/EDAWR')
