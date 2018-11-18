@@ -30,11 +30,21 @@ df$company <- tolower(df$company)
 unique(df$company)
 length(unique(df$company)) #12
 
-#Start here. Create a lookup table and make it so that you can apply the pattern to
-#all values
-for (names in df$company){
-    if (str_detect(names,pattern='ak')==TRUE)
-      print(names)
-    df$names <- 'akzo'
+
+#set variables based on patterns in each
+my_vars <- c('uni','ak','van','ps')
+
+#for loop runs through my_vars vector.
+#converts value to a value from my_vars based on position from grep
+for (var in my_vars){
+  for (num in grep(var,df$company)){
+    df$company[num] <- var
+  } 
 }
+
+#create lookup table
+lut <- c('ps'='philips', 'ak'='akzo','van'='van houten','uni'='unilever')
+df$company <- lut[df$company]
 df$company
+
+
