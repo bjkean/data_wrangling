@@ -65,3 +65,6 @@ for (item in 1:length(df)){
 }
 #check work: 295
 sum(df$has_cabin_number)
+
+#write file to local
+write.csv(df, file = "titanic_clean.csv")
