@@ -31,7 +31,7 @@ unique(df$age)
 #set mean of age value with NULL values removed. mean == 29.88
 mean_age <- mean(df$age, na.rm = TRUE)
 
-#set age_null_list, same logic as before
+#set age_null_list, same grep logic as before
 age_null_list <- (grep(pattern = "", df$age, invert = TRUE))
 
 #loop through and change null value in age to mean_age of 28.88
@@ -39,5 +39,29 @@ for (item in age_null_list){
   df$age[item] <- mean_age
 }
 
-#write function to find null values
-null_find <- function
+#set boat_null_list, same grep logic as before
+boat_null_list <- (grep(pattern = "", df$boat, invert = TRUE))
+
+#loop through and change null value to None
+for (item in boat_null_list){
+  df$boat[item] <- 'None'
+}
+
+###REMOVE
+#set cabin_null_list, same grep logic as before
+#cabin_null_list <- grepl(pattern = "", df$cabin, invert = TRUE)
+###REMOVE
+
+#set new column 
+df$has_cabin_number <- grepl(pattern = "", df$cabin)
+
+#check number of TRUE: 295
+sum(df$has_cabin_number)
+
+#set boolean in new column: TRUE==1, FALSE==0
+for (item in 1:length(df)){
+  if (df$has_cabin_number[item]==TRUE){df$has_cabin_number[item]=1}
+  else {df$has_cabin_number[item]=0}
+}
+#check work: 295
+sum(df$has_cabin_number)
