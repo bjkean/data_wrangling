@@ -67,6 +67,8 @@ df$product_tv <- as.numeric(df$product=='TV')
 df$product_laptop <- as.numeric(df$product=='Laptop') 
 df$product_tablet <- as.numeric(df$product == 'Tablet')
 
+write.csv(df, file = "final.csv")
+
 ##code not working, variable not recognizing, final output is column called 'column'
 cols <- c("company_philips", "company_akzo", "company_van_houten", "company_unilever")
 vals <- c('pilips','azko','van houten','unilever')

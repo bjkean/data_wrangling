@@ -39,5 +39,3 @@ lut <- c("AA" = "American", "AS" = "Alaska", "B6" = "JetBlue", "CO" = "Continent
 # Add the Carrier column to hflights
 hflights$Carrier <- lut[hflights$UniqueCarrier]
 
-DPLYR
-print(kdj
