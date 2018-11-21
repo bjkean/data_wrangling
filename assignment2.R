@@ -64,6 +64,7 @@ for (item in 1:length(df)){
   else {df$has_cabin_number[item]=0}
 }
 #check work: 295
+df$has_cabin_number
 sum(df$has_cabin_number)
 
 #write file to local

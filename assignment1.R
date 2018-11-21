@@ -80,3 +80,5 @@ for (column in cols){
     num < - num + 1
   }
 View(df)
+
+
