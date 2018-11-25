@@ -17,7 +17,7 @@ class(columns)
 
 #using read_table as other read_* have produced only one column
 #data <- read_table(path1, col_names = columns)
-data <- read_table(path1, col.names = columns)
+data <- read_table(path1, col_names = columns)
 head(data)
 #561 columns
 length(colnames(data))
