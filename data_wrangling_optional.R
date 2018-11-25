@@ -10,9 +10,14 @@ path2 <- "/Users/rhino/downloads/UCI_HAR_Dataset/train/y_train.txt"
 path3 <- "/Users/rhino/downloads/UCI_HAR_Dataset/features.txt"
 path4 <- "/Users/rhino/downloads/UCI_HAR_Dataset/train/subject_train.txt"
 
+#reading in column names and converting to a vector
+names <- read_table(path3, col_names = FALSE)
+columns <- unlist(names)
+class(columns)
+
 #using read_table as other read_* have produced only one column
 #data <- read_table(path1, col_names = columns)
-data <- read.table(path1, col.names = columns)
+data <- read_table(path1, col.names = columns)
 head(data)
 #561 columns
 length(colnames(data))
@@ -20,10 +25,7 @@ length(colnames(data))
 #7352 rows
 nrow(data)
 
-#reading in column names and converting to a vector
-names <- read_table(path3, col_names = FALSE)
-columns <- unlist(names)
-class(columns)
+
 
 #reading action data into a table
 data_action <- read_table(path2, col_names = "action")
