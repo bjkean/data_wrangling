@@ -4,6 +4,7 @@ library(tidyr)
 library(dplyr)
 library(readxl)
 
+
 #doing excel route as csv was pushing errors
 path <- "/Users/rhino/downloads/titanic3.xls"
 df <- read_excel(path)

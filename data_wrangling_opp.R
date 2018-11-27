@@ -31,11 +31,11 @@ length(df_train) #561 cols
 nrow(df_train) #7352 rows
 
 #actions for TRAIN data
-action_train <- read_table(feat_path1, col_names = "ActivityLabel")
+action_train <- read_table(feat_path1, col_names = "action")
 nrow(action_train) #7352 rows
 
 #subjects for TRAIN data
-sub_train <- read_table(sub_path1, col_names = "Subject")
+sub_train <- read_table(sub_path1, col_names = "subject")
 nrow(sub_train) #7352 rows
 
 #combining all TRAIN data
@@ -71,6 +71,13 @@ nrow(df_all) #10299
 lut <- c("1" = "WALKING", "2" = "WALKING_UPSTAIRS", "3" = "WALKING_DOWNSTAIRS", "4" = "SITTING",
          "5" = "STANDING" , "6" = "LAYING")
 
-#applying lookup table and adding activity Name
-df_all$ActivityName <- lut[df_all$ActivityLabel]
+#action column is numeric
+str(df_all$action)
 
+
+#applying lookup to convert action names
+df_all$action <- lut[df_all$action]
+df_all$action
+
+#trimmed df to only contain mean and std deviation columns
+trim_df <- select(df_all, subject:action, contains("mean"), contains("std"))
