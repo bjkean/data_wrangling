@@ -31,11 +31,11 @@ length(df_train) #561 cols
 nrow(df_train) #7352 rows
 
 #actions for TRAIN data
-action_train <- read_table(feat_path1, col_names = "action")
+action_train <- read_table(feat_path1, col_names = "ActivityLabel")
 nrow(action_train) #7352 rows
 
 #subjects for TRAIN data
-sub_train <- read_table(sub_path1, col_names = "subject")
+sub_train <- read_table(sub_path1, col_names = "Subject")
 nrow(sub_train) #7352 rows
 
 #combining all TRAIN data
@@ -67,4 +67,10 @@ df_all <- bind_rows(full_test_df, full_train_df)
 length(df_all) #563
 nrow(df_all) #10299
 
+#adding action names
+lut <- c("1" = "WALKING", "2" = "WALKING_UPSTAIRS", "3" = "WALKING_DOWNSTAIRS", "4" = "SITTING",
+         "5" = "STANDING" , "6" = "LAYING")
+
+#applying lookup table and adding activity Name
+df_all$ActivityName <- lut[df_all$ActivityLabel]
 
